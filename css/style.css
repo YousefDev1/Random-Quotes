@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --en-font: sans-serif;
+    --ar-font: 'Tajawal';
+
+    --bg-1: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';
+}
+
+.root{
+    width: 100vw;
+    height: 100vh;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    /*background-color: rgba(45,55,72,0.45);*/
+    color: white;
+    font-family: var(--ar-font);
+    max-width: 900px;
+
+    padding: 20px 30px;
+    border-radius: 5px;
+
+    margin: 10px;
+}
+
+.quote{
+    padding: 20px;
+}
+
+.quote .content{
+    font-size: 50px;
+    text-align: center;
+    line-height: 60px;
+    padding: 10px;
+
+    text-shadow: 1px 1px 0px rgba(154, 163, 170, 0.6);
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+.quote .author{
+    font-size: 17px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 2px;
+
+    background-color: rgba(11, 140, 186, 0.7);
+}
+
+/*********************************/
+
+.header{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    
+    user-select: none;
+}
+
+.header__title .title{
+    font-family: var(--ar-font);
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+}
+
+.header__status{
+    padding: 25px 0px 5px 5px;
+}
+
+.header__status .status{
+    font-family: var(--ar-font);
+    font-size: 12px;
+    color: #fff;
+    font-weight: 900;
+}
+
+/*********************************/
+
+.footer{
+    position: fixed;
+    z-index: 99;
+    bottom: 0px;
+    width: 100%;
+}
+
+.footer .settings-btn{
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+}
+
+.footer .settings-btn .btn{
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 2.5s settingsSpin linear infinite;
+}
+
+@keyframes settingsSpin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.footer .settings-btn .btn img{
+    height: 25px;
+    color: white;
+}
+
+/*********************************/
+
+.settings-overlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(45,55,72,0.45);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    animation: 0.2s fadeIn alternate ease-in-out;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.settings-active{
+    display: flex;
+}
+
+.settings__panel{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #083762;
+    color: white;
+
+    height: 300px;
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.settings__panel .settings__header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 10px;
+    border-bottom: 0.1px solid rgb(209, 209, 209);
+}
+
+.settings__header .header__title .title{
+    font-size: 30px;
+}
+
+.settings__panel .header__close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+}
+
+.header__close .close{
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/******/
+
+.settings__panel .settings__main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+}
+
+.settings__main .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main .main__choise{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 17px;
+    padding: 10px 15px;
+}
+
+.main__choise .title{
+    padding: 5px;
+}
+
+.main__choise .selectlang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectlang .language{
+    display: flex;
+    font-size: 15px;
+    border: .5px solid rgb(209, 209, 209);
+    border-radius: 5px;
+    padding: 8px;
+    user-select: none;
+}
+
+.language .arabic{
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.language .english{
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.language .active{
+    color: #0EB006;
+}

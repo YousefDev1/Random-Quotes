@@ -1,0 +1,14 @@
+{
+    "name": "Quotes",
+    "version": "1.0",
+    "description": "Random Quote",
+    "manifest_version": 2,
+    "chrome_url_overrides" :{
+        "newtab": "index.html"
+    },
+    "icons": {
+        "128": "imgs/logo.png"
+    },
+    "permissions": [ "http://*/", "https://*/" ],
+    "web_accessible_resources": ["Fonts/*.*", "*.ttf", "*.eot", "*.svg", "*.woff", "*.woff2"]
+}
