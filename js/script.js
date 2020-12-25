@@ -12,6 +12,12 @@ var settingsBtn = document.getElementById('settingsBtn');
 var settingsOverlay = document.querySelector('.settings-overlay');
 var settingsClose = document.getElementById('settingsClose');
 
+var refreshBtn = document.getElementById('refreshBtn');
+
+var shareBtn = document.getElementById('shareBtn');
+var shareOverlay = document.querySelector('.share-overlay');
+var shareClose = document.getElementById('shareClose');
+
 var random    = Math.floor(Math.random() * 1643);
 
 
@@ -47,7 +53,15 @@ if(getQuoteLang == 'ar') {
             
             container.style.direction = "rtl";
             
-            //Get English File
+            if(data[random].author != null)
+            {
+                quote.innerHTML = '<div class="content">'+ data[random].text +'</div> <div class="author">'+ data[random].author +'</div>';
+            }else{
+                quote.innerHTML = '<div class="content">'+ data[random].text +'</div>';
+            }
+            
+
+            //Get Arabic File
             function getQoute(){
                 if(data[random].author != null)
                 {
@@ -58,14 +72,18 @@ if(getQuoteLang == 'ar') {
                 random = Math.floor(Math.random() * 1643);
             }
 
+            
+
             //setInterval(getQoute)
-            getQoute()
+            refreshBtn.addEventListener('click', ()=>{
+                getQoute()
+            })
+            
             
 
     })
 
-}
-if(getQuoteLang == 'en') {
+}else if(getQuoteLang == 'en') {
     activeChoise(langEn, langAr)
     fetch('files/quotes.json')
         .then(res => res.json())
@@ -73,6 +91,14 @@ if(getQuoteLang == 'en') {
             
             container.style.direction = "ltr";
 
+            if(data[random].author != null)
+            {
+                quote.innerHTML = '<div class="content">'+ data[random].text +'</div> <div class="author">'+ data[random].author +'</div>';
+            }else{
+                quote.innerHTML = '<div class="content">'+ data[random].text +'</div>';
+            }
+            
+
             //Get English File
             function getQoute(){
                 if(data[random].author != null)
@@ -84,14 +110,18 @@ if(getQuoteLang == 'en') {
                 random = Math.floor(Math.random() * 1643);
             }
 
+            
+
             //setInterval(getQoute)
-            getQoute()
+            refreshBtn.addEventListener('click', ()=>{
+                getQoute()
+            })
+            
                         
                     
     })
 
-}
-if(setQuoteLang = null){
+}else{
     localStorage.setItem('lang', 'en');
 }
 
@@ -155,6 +185,23 @@ settingsClose.addEventListener('click', ()=>{
     settingsOverlay.classList.remove('settings-active')
     
 })
+
+///////////////////
+
+shareBtn.addEventListener('click', ()=>{
+    shareOverlay.classList.add('share-active')
+})
+
+shareClose.addEventListener('click', ()=>{
+    shareOverlay.classList.remove('share-active')
+    
+})
+
+/////////////////
+
+
+
+
 
 /*
 $(document).ready(function () {
